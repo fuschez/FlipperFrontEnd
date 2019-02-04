@@ -37,7 +37,8 @@ import { LoginComponent } from './login/login.component';
     RouterModule,
     AppRoutingModule,
     HomeModule,
-    FilmModule
+    FilmModule,
+    BrowserModule
   ],
   providers: [
     FilmService

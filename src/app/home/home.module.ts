@@ -21,8 +21,9 @@ import { FilmComponent } from 'app/film/film.component';
         NgbModule
     ],
     declarations: [ 
+        FilmComponent,
         HomeComponent,    
-        CarouselComponent,
+        CarouselComponent
     ],
     exports:[ HomeComponent ],
     providers: []

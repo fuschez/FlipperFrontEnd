@@ -1,15 +1,17 @@
 <div class="media">
+  <div *ngIf="Films">
   <ul>
-    <li *ngfor="let film in Films">
-      <div class="media-left media-middle">
-        <a href="#">
-          <img class="media-object" src={{film.pathImg}} alt="...">
-        </a>
-      </div>
-      <div class="media-body">
-        <h4 class="media-heading">{{film.nome}}</h4>
-        {{film.anno}}
-      </div>
-    </li>
-  </ul>
+      <li *ngFor="let film of Films">
+        <div class="media-left media-middle">
+          <a href="#">
+            <img class="media-object" src={{film.pathImg}} alt="...">
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">{{film.nome}}</h4>
+          {{film.anno}}
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
