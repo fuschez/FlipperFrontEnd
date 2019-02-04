@@ -2,24 +2,35 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="https://www.creative-tim.com">DOLPHIN</a>
-            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
+            <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler"
+                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
                 <span class="navbar-toggler-bar"></span>
             </button>
+            <a class="navbar-brand" href="#"> Calendario </a>
+            <a class="navbar-brand" href="#"> Premi </a>
+            <a class="navbar-brand" href="#"> Dove siamo </a>
         </div>
+
         <div class="navbar-collapse" id="navbarToggler">
+            <input type="text" class="form-control" placeholder="Ricerca" aria-describedby="basic-addon1">
+
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" *ngIf="isHome()">
-                    <a [routerLink]="[ '/Login']" target="_blank" class="btn btn-danger btn-round" >Login</a>
+
+                <li class="nav-item">
+                    <a [routerLink]="[ '/Login']" target="_blank" class="btn btn-danger btn-round">Login</a>
                 </li>
-                <li class="nav-item" *ngIf="!isHome()">
-                        <a href="#" target="_blank" class="btn btn-danger btn-round" click()="OpenLogin()">Login</a>
-                </li>
+
+
                 <li class="nav-item" *ngIf="isDocumentation()">
-                    <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local" target="_blank" class="nav-link">Have an issue</a>
+                    <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local"
+                        target="_blank" class="nav-link">Have an issue</a>
                 </li>
             </ul>
         </div>
+
+
+
     </div>
 </nav>
