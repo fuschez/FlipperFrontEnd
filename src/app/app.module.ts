@@ -19,6 +19,7 @@ import { FilmComponent } from './film/film.component';
 import { FilmService } from './services/film.services';
 import { FilmModule } from './film/film.module';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './services/user.services';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule
   ],
   providers: [
-    FilmService
+    FilmService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

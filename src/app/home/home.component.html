@@ -55,12 +55,13 @@
             <div class="nav-tabs-wrapper">
                 <ngb-tabset [justify]="'center'">
                     <ngb-tab title="In sala">
-                        <ng-template ngbTabContent>
+                        <ng-template ngbTabContent #FilmInSala>
+                            <app-film></app-film>
                         </ng-template>
                     </ngb-tab>
                     <ngb-tab title="In uscita">
-                        <ng-template ngbTabContent>
-                            <p>Here is your profile.</p>
+                        <ng-template ngbTabContent #FilmInUscita>
+                            <app-film></app-film>
                         </ng-template>
                     </ngb-tab>
                 </ngb-tabset>
@@ -116,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
+        <!-- <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
@@ -169,7 +170,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="section section-dark">
             <div class="container">
                 <div class="row example-page">
@@ -183,7 +184,8 @@
 
                     <div class="col-md-6 text-center" routerLinkActive="active">
                         <a [routerLink]="['/user-profile']">
-                            <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image" class="img-rounded img-responsive"
+                            <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image" class="img-rounded img-r
+                            esponsive"
                                 style="width: 100%">
                             <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile Page</a>
                         </a>
@@ -232,4 +234,4 @@
         </div>
     </div>
 </div>
-<app-film></app-film>
+

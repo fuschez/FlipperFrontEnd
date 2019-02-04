@@ -1,4 +1,4 @@
-<div class="media">
+<!-- <div class="media">
   <div *ngIf="Films">
   <ul>
       <li *ngFor="let film of Films">
@@ -14,4 +14,23 @@
       </li>
     </ul>
   </div>
-</div>
+</div> -->
+  <table>
+      <tr *ngFor="let film of Films">
+        
+            <td>
+                <img class="media-object" src={{film.pathImg}} alt="...">
+              </td>
+              <td>
+                <h4 class="media-heading"> {{film.nome}} </h4>
+                <h6> Anno : {{film.anno}} </h6>
+                <h6> Attori: {{film.attori}} </h6>
+                <h6> Genere: {{film.genere}} </h6>
+                <h6> Durata : {{film.durata}} </h6>
+                <p> Trama: {{film.trama}} </p>
+              </td>
+        
+        
+        
+      </tr>
+    </table>  

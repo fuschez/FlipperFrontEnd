@@ -11,11 +11,10 @@
         <div class="navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" *ngIf="isHome()">
-                    <a href="#" target="_blank" class="btn btn-danger btn-round">Login</a>
+                    <a [routerLink]="[ '/Login']" target="_blank" class="btn btn-danger btn-round" >Login</a>
                 </li>
                 <li class="nav-item" *ngIf="!isHome()">
-                        <a href="#" target="_blank" class="btn btn-danger btn-round">Login</a>
-                    <a [routerLink]="['/home']" *ngIf="isDocumentation()" class="nav-link">Back to Kit</a>
+                        <a href="#" target="_blank" class="btn btn-danger btn-round" click()="OpenLogin()">Login</a>
                 </li>
                 <li class="nav-item" *ngIf="isDocumentation()">
                     <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local" target="_blank" class="nav-link">Have an issue</a>

@@ -8,4 +8,6 @@ export interface IFilm {
     durata: number;
     dataProiezione:  Data;
     pathImg: string;
+    trama : string;
+    inProiezione : boolean;
 }

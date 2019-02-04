@@ -15,7 +15,9 @@ export class FilmService {
             attore: "Ciccio, Panza",
             anno: 1990,
             dataProiezione: new Date(2019, 4, 1),
-            pathImg: "assets/img/locandina1.jpg"
+            pathImg: "assets/img/locandina1.jpg",
+            trama:"fberihfoehfoehfouheri v9owhfiuoe hofwh ofhe oehfoehrfureh pgehrfh eofhoierhg orefperhoif bnlfnvpierhf",
+            inProiezione: false
         });
 
         this._listafilm.push({
@@ -25,7 +27,9 @@ export class FilmService {
             attore: "Pippo, Pappa",
             anno: 2010,
             dataProiezione: new Date(2019, 2, 1),
-            pathImg: "assets/img/locandina2.jpg"
+            pathImg: "assets/img/locandina2.jpg",
+            trama:"pwjefnvso esuilsevo frekbvrv r eobv kiewb csj fkewivcdsjfk",
+            inProiezione:  true
         });
     }
 
