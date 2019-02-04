@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: FilmComponent,
     data: {
-      title: 'Film'
+      title: 'Film' 
     }
   }
 ];
@@ -17,5 +17,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
+  //ciao
 })
 export class FilmRoutingModule {}
