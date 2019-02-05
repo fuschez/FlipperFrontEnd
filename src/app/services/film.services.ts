@@ -1,60 +1,57 @@
 import { Injectable } from "@angular/core";
 import { IFilm } from "app/models/film.model";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class FilmService {
     private _listafilm: Array<IFilm>;
+    
+    private _header = {
+        headers: new HttpHeaders({
+            "Content-type": "application/json"
+        })
+    }
 
-    constructor() {
+    constructor(private _http: HttpClient) {
         this._listafilm = [];
-
-        this._listafilm.push({
-            nome: "Esempio1",
-            genere: "Dramma",
-            durata: 90,
-            attore: "Ciccio, Panza",
-            anno: 1990,
-            dataProiezione: new Date(2019, 4, 1),
-            pathImg: "assets/img/locandina1.jpg",
-            trama:"fberihfoehfoehfouheri v9owhfiuoe hofwh ofhe oehfoehrfureh pgehrfh eofhoierhg orefperhoif bnlfnvpierhf",
-            inProiezione: false
-        });
-
-        this._listafilm.push({
-            nome: "Esempio2",
-            genere: "Dramma",
-            durata: 180,
-            attore: "Pippo, Pappa",
-            anno: 2010,
-            dataProiezione: new Date(2019, 2, 1),
-            pathImg: "assets/img/locandina2.jpg",
-            trama:"pwjefnvso esuilsevo frekbvrv r eobv kiewb csj fkewivcdsjfk",
-            inProiezione: true
-        });
+        this.Update();
     }
 
-    public get Films(): Array<IFilm> {
-        return this._listafilm;
+    public Update() {
+        this._http.get<Array<IFilm>>("http://multisaladelfino.com/api/films").subscribe((f) => {this._listafilm = f});
+        
     }
 
-    public AddFilm(){
-
+    public AddFilm(films: Array<IFilm>){
+        this._http.post<Array<IFilm>>("http://multisaladelfino.com/api/films",JSON.stringify(films),this._header);
     }
 
-    public EditFilm(){
-
+    public EditFilm(film: IFilm){
+        this._http.put("http://multisaladelfino.com/api/films", JSON.stringify(film), this._header);
+        this.Update();
     }
 
     public DeleteFilm(){
         
     }
 
+    public get Films():Array<IFilm> {
+        return this._listafilm;
+    }
+
     public get FilmsInSala(): Array<IFilm> {
-        return this._listafilm.filter(v => v.inProiezione);
+        if(this._listafilm.length>0){
+            return this._listafilm.filter(v => v.inProiezione);
+        }
+        return null;
     }
 
     public get FilmsInUscita(): Array<IFilm> {
-        return this._listafilm.filter(v => !v.inProiezione);
+        if(this._listafilm.length>0){
+
+            return this._listafilm.filter(v => !v.inProiezione);
+        }
+        return null;
     }
 
 

@@ -20,8 +20,9 @@ import { FilmService } from './services/film.services';
 import { FilmModule } from './film/film.module';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.services';
-import { NgbdModalComponent, NgbdModalContent } from './components/modal/modal.component';
-import { HttpClient } from 'selenium-webdriver/http';
+import { LoginModalComponent, LoginModalContent } from './modal-login/modal-login.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { PrizeComponent } from './prize/prize.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,9 @@ import { HttpClient } from 'selenium-webdriver/http';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    NgbdModalComponent,
-    NgbdModalContent
+    LoginModalComponent,
+    LoginModalContent,
+    PrizeComponent
   ],
   imports: [
     BrowserModule,
@@ -43,14 +45,15 @@ import { HttpClient } from 'selenium-webdriver/http';
     AppRoutingModule,
     HomeModule,
     FilmModule,
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
     
   ],
   providers: [
     FilmService,
     UserService
   ],
-  entryComponents: [NgbdModalContent],
+  entryComponents: [LoginModalContent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

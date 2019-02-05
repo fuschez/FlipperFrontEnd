@@ -1,13 +1,13 @@
 import { Data } from "@angular/router";
 
 export interface IFilm {
-    nome: string;
-    genere: string;
-    anno: number;
-    attore: string;
-    durata: number;
-    dataProiezione:  Data;
-    pathImg: string;
-    trama : string;
+    title: string;
+    genres: string;
+    relaseDate: Data;
+    actors: string;
+    duration: number;
+    screeningDate:  Data;
+    posterUrl: string;
+    plot : string;
     inProiezione : boolean;
 }

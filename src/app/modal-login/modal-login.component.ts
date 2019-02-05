@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector: 'app-modal-content',
+    selector: 'login-modal-content',
     template: `
     <div class="modal-header no-border-header">
         <h5 class="modal-title text-center">  </h5>
@@ -11,24 +11,25 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
         </button>
     </div>
     <div class="modal-body">
-        Esempio
+        <app-login></app-login>
     </div>
     `
 })
-export class NgbdModalContent {
+export class LoginModalContent {
     @Input() name;
 
     constructor(public activeModal: NgbActiveModal) {}
 }
 
 @Component({
-    selector: 'app-modal-component',
-    templateUrl: './modal.component.html'
+    selector: 'login-modal-component',
+    templateUrl: './modal-login.component.html'
 })
-export class NgbdModalComponent {
+export class LoginModalComponent {
     constructor(private modalService: NgbModal) {}
     open() {
-        const modalRef = this.modalService.open(NgbdModalContent);
+        const modalRef = this.modalService.open(LoginModalContent);
         modalRef.componentInstance.name = 'World';
     }
 }
+
