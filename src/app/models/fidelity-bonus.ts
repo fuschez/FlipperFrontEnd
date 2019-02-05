@@ -1,4 +1,4 @@
-export interface IPrize {
+export interface IFidelityBonus {
     name: string,
     costs: number,
     description: string

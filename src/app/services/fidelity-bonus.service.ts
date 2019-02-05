@@ -1,10 +1,10 @@
 import { Injectable } from "@angular/core";
-import { IPrize } from "app/models/fidelity-bonus.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { IFidelityBonus } from "app/models/fidelity-bonus";
 
 @Injectable()
-export class PrizeService{
-    private _listaPrize : Array<IPrize>;
+export class FidelityBonusService{
+    private _fidelityBonuses : Array<IFidelityBonus>;
 
     private _header = {
         headers : new HttpHeaders({
@@ -16,24 +16,25 @@ export class PrizeService{
         
     }
 
-    public get Prizes(){
-        return this._listaPrize;
+    public get GetAll(){
+        //this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
+        return this._fidelityBonuses;
     }
 
     public Update(){
-        this._http.get<Array<IPrize>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._listaPrize=p));
+        this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
     }
 
-    public AddPrize(prizes:Array<IPrize>){
-        this._http.post<Array<IPrize>>("http://multisaladelfino.com/api/prizes",JSON.stringify(prizes),this._header);
+    public Add(fidelityBonuses:Array<IFidelityBonus>){
+        this._http.post<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes",JSON.stringify(fidelityBonuses),this._header);
     }
 
-    public EditPrize(prize:IPrize){
-        this._http.put("http://multisaladelfino.com/api/prizes",JSON.stringify(prize),this._header);
+    public Edit(fidelityBonus:IFidelityBonus){
+        this._http.put("http://multisaladelfino.com/api/prizes",JSON.stringify(fidelityBonus),this._header);
         this.Update();
     }
 
-    public DeletePrize(){
+    public Delete(){
         
     }
 }
