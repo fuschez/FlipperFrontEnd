@@ -369,14 +369,14 @@ input[type="file"] > input[type="button"]::-moz-focus-inner {
   border-top-color: #FFFFFF;
 }
 .btn.btn-link {
-  color: #66615B;
+  color: white;
 }
 .btn.btn-link:hover, .btn.btn-link:focus, .btn.btn-link:active, .btn.btn-link.active, .open > .btn.btn-link.dropdown-toggle {
   background-color: transparent;
-  color: #403D39;
+  color:  white;
 }
 .btn.btn-link .caret {
-  border-top-color: #66615B;
+  border-top-color: white;
 }
 .btn .caret {
   border-top-color: #FFFFFF;

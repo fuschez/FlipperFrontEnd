@@ -20,6 +20,8 @@ import { FilmService } from './services/film.services';
 import { FilmModule } from './film/film.module';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.services';
+import { NgbdModalComponent, NgbdModalContent } from './components/modal/modal.component';
+import { HttpClient } from 'selenium-webdriver/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { UserService } from './services/user.services';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    NgbdModalComponent,
+    NgbdModalContent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +44,13 @@ import { UserService } from './services/user.services';
     HomeModule,
     FilmModule,
     BrowserModule
+    
   ],
   providers: [
     FilmService,
     UserService
   ],
+  entryComponents: [NgbdModalContent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

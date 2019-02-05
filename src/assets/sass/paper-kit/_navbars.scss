@@ -205,7 +205,7 @@
     }
 
     .btn-default.btn-fill{
-        color: $dark-gray;
+        color: $white-color;
         background-color: $white-color;
         @include opacity(.9);
     }
@@ -272,7 +272,7 @@
     &:not(.navbar-transparent) .btn-neutral,
     &:not(.navbar-transparent) .btn-neutral:hover,
     &:not(.navbar-transparent) .btn-neutral:active{
-            color: $dark-gray;
+            color: $white-color;
         }
 }
 

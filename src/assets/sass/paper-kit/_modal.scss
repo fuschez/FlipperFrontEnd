@@ -1,10 +1,11 @@
 .modal-header {
     border-bottom: 1px solid $medium-gray;
-    padding: 20px;
+    padding: 10px;
     text-align: center;
     display: block !important;
 
     &.no-border-header{
+        background-color: #FF8F5E;
         border-bottom: 0 none !important;
         & .modal-title{
             margin-top: 20px;
@@ -29,11 +30,11 @@
     }
 }
 .modal-dialog {
-    padding-top: 60px;
+    padding-top: 10px;
 }
 .modal-body{
-    padding: 20px 50px;
-    color: #000;
+    padding: 10px 10px;
+    background-color: #FF8F5E;
 }
 .modal-footer {
     border-top: 1px solid $medium-gray;
@@ -41,9 +42,11 @@
 
     &.no-border-footer{
         border-top: 0 none;
+        background-color: #FF8F5E;
     }
 }
 .modal-footer .left-side, .modal-footer .right-side{
+    background-color: #FF8F5E;
     display: inline-block;
     text-align: center;
     width: 49%;

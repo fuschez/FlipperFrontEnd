@@ -29,7 +29,7 @@ export class FilmService {
             dataProiezione: new Date(2019, 2, 1),
             pathImg: "assets/img/locandina2.jpg",
             trama:"pwjefnvso esuilsevo frekbvrv r eobv kiewb csj fkewivcdsjfk",
-            inProiezione:  true
+            inProiezione: true
         });
     }
 
@@ -47,6 +47,14 @@ export class FilmService {
 
     public DeleteFilm(){
         
+    }
+
+    public get FilmsInSala(): Array<IFilm> {
+        return this._listafilm.filter(v => v.inProiezione);
+    }
+
+    public get FilmsInUscita(): Array<IFilm> {
+        return this._listafilm.filter(v => !v.inProiezione);
     }
 
 

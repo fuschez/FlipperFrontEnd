@@ -17,13 +17,13 @@
             <div class="nav-tabs-wrapper">
                 <ngb-tabset [justify]="'center'">
                     <ngb-tab title="In sala">
-                        <ng-template ngbTabContent #FilmInSala>
-                            <app-film></app-film>
+                        <ng-template ngbTabContent>
+                            <app-film [inProiezione]="true"></app-film>
                         </ng-template>
                     </ngb-tab>
                     <ngb-tab title="In uscita">
-                        <ng-template ngbTabContent #FilmInUscita>
-                            <app-film></app-film>
+                        <ng-template ngbTabContent>
+                            <app-film [inProiezione]="false"></app-film>
                         </ng-template>
                     </ngb-tab>
                 </ngb-tabset>
