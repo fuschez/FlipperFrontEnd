@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IPrize } from "app/models/prize.model";
+import { IPrize } from "app/models/fidelity-bonus.model";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
