@@ -1,27 +1,28 @@
 <div>
-    <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+    <div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg'); margin-bottom: 25px">
         <div class="filter"></div>
-        <div class="content-center">
-            <div class="container">
-                <div class="title-brand">
-                    <h1 class="presentation-title">Esplora i premi per i nostri soci</h1>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <div class="divp">
-        <table style="width:100%">
-            <tr>
-                <th class="h2 text-success">Nome</th>
-                <th class="h2 text-success">Descrizione</th> 
-                <th class="h2 text-success">Costo</th>
-            </tr>
-            <tr *ngFor="let fb of _fidelityBonuses">
-                <td class="h4">{{ fb.name }}</td>
-                <td class="h4">{{ fb.description }}</td>
-                <td class="h4">{{ fb.cost }}</td>
-            </tr>
-        </table>
-    </div>
+    <div *ngFor="let fb of _fidelityBonuses" class="row fidelity" style="margin-left: 0px; margin-right: 0px">
+            <div class="col-md-10 ml-auto mr-auto">
+                <ul class="list-unstyled follows">
+                    <li>
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                                <img src="{{ fb.imageUrl }}" alt="Immagine premio" onerror="this.onerror=null; this.src='./assets/img/faces/clem-onojeghuo-2.jpg'" class="img-circle img-no-padding img-responsive">
+                            </div>
+                            <div class="col-md-8 col-sm-4 ml-auto">
+                                <h3>{{ fb.name }}<br/><small>{{ fb.description }}</small></h3>
+                            </div>
+                            <div class="col-md-2 col-sm-2 ml-auto mr-auto">
+                                <div class="form-check">
+                                    <h3>Costo<br/><small>{{ fb.cost }}</small></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <hr />
+                </ul>
+            </div>
+        </div>
 </div>

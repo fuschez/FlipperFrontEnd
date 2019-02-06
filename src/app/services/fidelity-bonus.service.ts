@@ -18,6 +18,7 @@ export class FidelityBonusService{
 
     public get GetAll(){
         //this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
+        this._fidelityBonuses = [];
         var f = <IFidelityBonus>{};
         f.cost = 10;
         f.name = 'Bonus 1';
@@ -33,11 +34,7 @@ export class FidelityBonusService{
 
     public Update(){
         //this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
-        var f = <IFidelityBonus>{};
-        f.cost = 10;
-        f.name = 'Bonus 1';
-        f.description = 'Descrizione 1';
-        this._fidelityBonuses.push(f);
+        this._fidelityBonuses = this.GetAll;
     }
 
     public Add(fidelityBonuses:Array<IFidelityBonus>){
