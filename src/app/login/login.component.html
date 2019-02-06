@@ -65,7 +65,7 @@
                     </span>
                 </div>
 
-                <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
+                <input name="email" [(ngModel)]="email" type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false">
              </div>
 
             <label>Password</label>
@@ -75,12 +75,12 @@
                         <i class="nc-icon nc-key-25"></i>
                     </span>
                 </div>
-                <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false">
+                <input  type="password" name="pwd" [(ngModel)]="pwd" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false">
             </div>
-            <button class="btn btn-danger btn-block btn-round">Accedi</button>
+            <button class="btn btn-danger btn-block btn-round" (click)="Accedi()">Accedi</button>
         </form>
         <div class="forgot">
-        <a href="#0" class="btn btn-link btn-default">Password dimenticata?</a>
+        <a href="#0" class="btn btn-link btn-default">Password dimenticata? ti fotti!</a>
         </div>
         
     </div>   
