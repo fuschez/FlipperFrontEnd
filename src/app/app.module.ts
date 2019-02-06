@@ -38,7 +38,7 @@ import { FidelityBonusService } from './services/fidelity-bonus.service';
     LoginModalComponent,
     LoginModalContent,
     PrizeComponent,
-    FidelityBonusComponent
+    FidelityBonusComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from 'app/services/user.services';
 
 
@@ -9,6 +9,8 @@ import { UserService } from 'app/services/user.services';
 })
 export class LoginComponent implements OnInit {
 
+  mode: string;
+
   constructor(private userService : UserService) { }
 
   public get Users(){
@@ -16,6 +18,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mode = "Login";
   }
 
+  changeMode(){
+    //debugger;
+    this.mode = this.mode=="Login" ? "Register" : "Login";
+  }
 }
