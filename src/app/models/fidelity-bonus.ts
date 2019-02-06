@@ -1,5 +1,5 @@
 export interface IFidelityBonus {
     name: string,
-    costs: number,
+    cost: number,
     description: string
 }

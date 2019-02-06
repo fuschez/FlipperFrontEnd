@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LandingComponent } from './landing/landing.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { LoginComponent } from './login/login.component';
+import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes =[
     { path: 'landing',          component: LandingComponent },
     { path: 'nucleoicons',      component: NucleoiconsComponent },
     { path: 'login',            component: LoginComponent },
+    { path: 'premi',            component: FidelityBonusComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

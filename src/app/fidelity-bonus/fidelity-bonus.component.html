@@ -1,33 +1,27 @@
-<div id="navbar">
-  <div class="container">
-      <div class="tim-title">
-          <h3>Premi fedeltà</h3>
-          <br/>
-      </div>
-  </div>
-  <div *ngIf="_fidelityBonuses" class="navigation-example">
-      <nav *ngFor="let fb of _fidelityBonuses" class="navbar navbar-expand-lg bg-primary">
-          <div class="container">
-              <a class="navbar-brand" href="#">{{ fb.Name }}</a>
-              <button class="navbar-toggler navbar-toggler-right burger-menu" type="button" data-toggle="collapse" data-target="#navbar-primary" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-bar"></span>
-                  <span class="navbar-toggler-bar"></span>
-                  <span class="navbar-toggler-bar"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbar-primary">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="nc-icon nc-compass-05" aria-hidden="true"></i>&nbsp;Discover</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="nc-icon nc-single-02" aria-hidden="true"></i>&nbsp;Profile</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="nc-icon nc-settings-gear-65" aria-hidden="true"></i>&nbsp;Settings</a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </div>
+<div>
+    <div class="page-header section-dark" style="background-image: url('assets/img/antoine-barres.jpg')">
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container">
+                <div class="title-brand">
+                    <h1 class="presentation-title">Esplora i premi per i nostri soci</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="divp">
+        <table style="width:100%">
+            <tr>
+                <th class="h2 text-success">Nome</th>
+                <th class="h2 text-success">Descrizione</th> 
+                <th class="h2 text-success">Costo</th>
+            </tr>
+            <tr *ngFor="let fb of _fidelityBonuses">
+                <td class="h4">{{ fb.name }}</td>
+                <td class="h4">{{ fb.description }}</td>
+                <td class="h4">{{ fb.cost }}</td>
+            </tr>
+        </table>
+    </div>
 </div>

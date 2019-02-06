@@ -24,6 +24,7 @@ import { LoginModalComponent, LoginModalContent } from './modal-login/modal-logi
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PrizeComponent } from './prize/prize.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
+import { FidelityBonusService } from './services/fidelity-bonus.service';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.componen
   ],
   providers: [
     FilmService,
-    UserService
+    UserService,
+    FidelityBonusService
   ],
   entryComponents: [LoginModalContent],
   bootstrap: [AppComponent]

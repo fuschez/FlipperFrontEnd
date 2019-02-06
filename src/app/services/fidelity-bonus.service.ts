@@ -4,7 +4,7 @@ import { IFidelityBonus } from "app/models/fidelity-bonus";
 
 @Injectable()
 export class FidelityBonusService{
-    private _fidelityBonuses : Array<IFidelityBonus>;
+    private _fidelityBonuses : Array<IFidelityBonus> = [];
 
     private _header = {
         headers : new HttpHeaders({
@@ -13,16 +13,31 @@ export class FidelityBonusService{
     }
      
     constructor(private _http : HttpClient) {
-        
+        this._fidelityBonuses = [];
     }
 
     public get GetAll(){
         //this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
+        var f = <IFidelityBonus>{};
+        f.cost = 10;
+        f.name = 'Bonus 1';
+        f.description = 'Descrizione 1';
+        this._fidelityBonuses.push(f);
+        var e = <IFidelityBonus>{};
+        e.cost = 15;
+        e.name = 'Bonus 2';
+        e.description = 'Descrizione 2';
+        this._fidelityBonuses.push(e);
         return this._fidelityBonuses;
     }
 
     public Update(){
-        this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
+        //this._http.get<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes").subscribe((p)=>(this._fidelityBonuses=p));
+        var f = <IFidelityBonus>{};
+        f.cost = 10;
+        f.name = 'Bonus 1';
+        f.description = 'Descrizione 1';
+        this._fidelityBonuses.push(f);
     }
 
     public Add(fidelityBonuses:Array<IFidelityBonus>){
