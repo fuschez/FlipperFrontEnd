@@ -3,6 +3,7 @@ import { UserService } from 'app/services/user.services';
 import { AuthService } from 'app/services/authentication.services';
 import { tryParse } from 'selenium-webdriver/http';
 import { first } from 'rxjs/operators';
+import { IUser } from 'app/models/user.models';
 
 
 @Component({
@@ -12,27 +13,11 @@ import { first } from 'rxjs/operators';
 })
 export class LoginComponent implements OnInit {
 
-  public email:string;
-  public pwd:string;
-  public isLog: boolean;
-  public error: string;
-  public mode: string;
+  user: IUser = {name: "", surname: "", email: "", password: "", confirmPassword: ""};
+  error: string;
+  mode: string;
 
-  constructor(private authService : AuthService ) { 
-    this.isLog = false;
-    this.email = "";
-    this.email = "";
-  }
-
-  public Accedi() : void{
-    console.log("le banane con in mezzo manzotin");
-    this.isLog = true;
-
-    this.authService.login(this.email,this.pwd).pipe(first())
-      .subscribe(
-        err => this.error = 'Could not authenticate'
-      );
-
+  constructor(private authService : AuthService ) {
   }
 
   ngOnInit() {
@@ -42,5 +27,16 @@ export class LoginComponent implements OnInit {
   changeMode(){
     //debugger;
     this.mode = this.mode=="Login" ? "Register" : "Login";
+  }
+
+  login(){
+    this.authService.login(this.user.email,this.user.password).pipe(first())
+      .subscribe(
+        err => this.error = 'Could not authenticate'
+    );
+  }
+  register(){
+    //TODO
+    alert('Registration: ' + JSON.stringify(this.user));
   }
 }
