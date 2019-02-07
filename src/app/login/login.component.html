@@ -2,7 +2,12 @@
     <h3 *ngIf="mode=='Login'" class="title">Login</h3>
     <h3 *ngIf="mode=='Register'" class="title">Registrazione</h3>
 
+<<<<<<< HEAD
     <form name="form" (ngSubmit)="f.form.valid && (mode=='Login' ? login() : register())" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+=======
+    <form name="form" (ngSubmit)="f.form.valid && (mode=='Login' ? login() : register())"
+        #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
+>>>>>>> de57766974ed7914a83e56238f1621aaf52651fe
         <div *ngIf="mode=='Register'" class="form-group">
             <label for="name">Nome</label>
             <input type="text" class="form-control" name="name" [(ngModel)]="user.name" #name="ngModel" [ngClass]="{ 'is-invalid': f.submitted && name.invalid }" required />
