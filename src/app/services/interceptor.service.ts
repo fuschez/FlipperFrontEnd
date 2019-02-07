@@ -7,7 +7,6 @@ export class Interception  implements HttpInterceptor{
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const idToken = localStorage.getItem("id_token"); //recuperiamo il token dalla memoria
-        console.log("c8a9");
         if(idToken) {
             const cloned = req.clone({
                 headers: req.headers.set("Authorization", "Bearer " + idToken) 

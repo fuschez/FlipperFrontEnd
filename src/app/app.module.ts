@@ -27,6 +27,7 @@ import { FidelityBonusService } from './services/fidelity-bonus.service';
 import { AuthService } from './services/authentication.services';
 import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
+import { InfoComponent } from './info/info.component';
 
 
 
@@ -42,6 +43,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'
     LoginModalComponent,
     LoginModalContent,
     FidelityBonusComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'
     HomeModule,
     FilmModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
     
   ],
   providers: [

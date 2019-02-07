@@ -9,12 +9,16 @@ import { IFidelityBonus } from 'app/models/fidelity-bonus';
 })
 export class FidelityBonusComponent implements OnInit {
   
-  private _fidelityBonuses: Array<IFidelityBonus>;
+  public _listafidelity: IFidelityBonus[];
   
   constructor(private svc: FidelityBonusService) { }
   
   ngOnInit() {
-    this._fidelityBonuses = this.svc.GetAll;
+    this.GetFidelity();
+  }
+
+  public GetFidelity(){
+    this.svc.GetFidelity().subscribe(x=>this._listafidelity=x);
   }
 
 }
