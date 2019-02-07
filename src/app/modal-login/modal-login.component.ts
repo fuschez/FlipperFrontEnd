@@ -26,6 +26,9 @@ export class LoginModalContent {
     templateUrl: './modal-login.component.html'
 })
 export class LoginModalComponent {
+    @Input()
+    islog : boolean;
+    
     constructor(private modalService: NgbModal) {}
     open() {
         const modalRef = this.modalService.open(LoginModalContent);

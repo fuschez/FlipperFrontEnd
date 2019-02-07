@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { LoginComponent } from 'app/login/login.component';
 
 @Component({
     selector: 'app-navbar',
@@ -67,7 +68,5 @@ export class NavbarComponent implements OnInit {
         }
     }
 
-    OpenLogin() {
-        
-    }
+    
 }

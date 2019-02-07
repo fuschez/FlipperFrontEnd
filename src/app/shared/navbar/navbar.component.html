@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg fixed-top navbar-transparent" color-on-scroll="500">
     <div class="container">
         <div class="navbar-translate">
-            <a class="navbar-brand" href="https://www.creative-tim.com">DOLPHIN</a>
+            <a class="navbar-brand" [routerLink]="[ '/home']">DOLPHIN</a>
             <button class="navbar-toggler navbar-burger" type="button" data-toggle="collapse" data-target="#navbarToggler"
                 aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation" (click)="sidebarToggle()">
                 <span class="navbar-toggler-bar"></span>
@@ -10,21 +10,23 @@
             </button>
             <a class="navbar-brand" href="#"> Calendario </a>
             <a class="navbar-brand" href="#"> Premi </a>
-            <a class="navbar-brand" href="#"> Dove siamo </a>
+            <a class="navbar-brand" [routerLink]="[ '/info']"> Info </a>
         </div>
 
         <div class="navbar-collapse" id="navbarToggler">
             <input type="text" class="form-control ricerca" placeholder="Ricerca" aria-describedby="basic-addon1">
+            <ul class="navbar-nav ml-auto" >
 
-            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" >
+                    <login-modal-component #modal></login-modal-component>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto" *ngIf="modal.islog">
+
 
                 <li class="nav-item">
-                    <login-modal-component></login-modal-component>
-
-
-                <li class="nav-item" *ngIf="isDocumentation()">
-                    <a href="https://github.com/creativetimofficial/paper-kit-2-angular/issues?ref=pk2-free-local"
-                        target="_blank" class="nav-link">Have an issue</a>
+                        <button class="btn btn-outline-danger btn-round" [routerLink]="[ '/user-profile']"><i class="nc-icon nc-circle-10"></i></button>
                 </li>
             </ul>
         </div>

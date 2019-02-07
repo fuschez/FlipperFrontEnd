@@ -21,10 +21,12 @@ import { FilmModule } from './film/film.module';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.services';
 import { LoginModalComponent, LoginModalContent } from './modal-login/modal-login.component';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
 import { AuthService } from './services/authentication.services';
 import { Interception } from './services/interceptor.service';
+import { InfoComponent } from './info/info.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { Interception } from './services/interceptor.service';
     LoginComponent,
     LoginModalComponent,
     LoginModalContent,
-    FidelityBonusComponent
+    FidelityBonusComponent,
+    InfoComponent,
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,7 @@ import { Interception } from './services/interceptor.service';
     FilmService,
     UserService,
     AuthService,
-    Interception
+    {provide: HTTP_INTERCEPTORS, useClass:Interception, multi : true}
   ],
   entryComponents: [LoginModalContent],
   bootstrap: [AppComponent]

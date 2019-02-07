@@ -1,43 +1,56 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { IUser } from "app/models/user.models";
 import { Observable } from "rxjs";
-import { tap, shareReplay } from "rxjs/operators";
+import { tap, shareReplay, map } from "rxjs/operators";
 import * as moment from "moment";
 
 @Injectable()
-export class AuthService{
+export class AuthService {
 
-    constructor(private _http: HttpClient){
+
+    constructor(private _http: HttpClient) {
 
     }
 
-    login(username:string, password:string){
-        debugger;
-        const req = this._http.post<IUser>("http://multisaladelfino.com/token", {username, password}).pipe(tap(res=>this.setSession)).subscribe();
-        
+    login(username: string, password: string) {
+        let body = `username=${username}&password=${password}&grant_type=password`;
+    return this._http.post<{access_token: string,expires_in:string}>('http://multisaladelfino.com/token',body,
+      {
+        headers: new HttpHeaders()
+          .set('Content-Type', 'application/x-www-form-urlencoded')
+      }).pipe( map(result => {
+        const expiresAt = moment().add(result.expires_in, 'second');
+        localStorage.setItem('id_token',result.access_token);
+        localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
+        console.log("token "+localStorage.getItem('id_token'));
+        console.log("expires "+localStorage.getItem('expires_at'));
+        return true;   
+      }));
+
     }
 
-    private setSession(authResult){ //memorizziamo il jwt nella memoria locale
-        const expiresAt = moment().add(authResult.expiresIn,'second');
+    private setSession(authResult) { //memorizziamo il jwt nella memoria locale
+        console.log("ciao:"+authResult);
+        const expiresAt = moment().add(authResult.expiresIn, 'second');
 
-        localStorage.setItem('id_token',authResult.idToken);
-        localStorage.setItem("expires_at",JSON.stringify(expiresAt.valueOf()));
+        localStorage.setItem('id_token', authResult.idToken);
+        localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
     }
 
-    logout(){
+    logout() {
         localStorage.removeItem("id_token");
         localStorage.removeItem("expires_at");
     }
 
-    getExpiration(){
+    getExpiration() {
         const expiration = localStorage.getItem("expires_at");
         const expiresAt = JSON.parse(expiration);
 
         return moment(expiresAt);
     }
 
-    public isLoggedIn(){
+    public isLoggedIn() {
         return moment().isBefore(this.getExpiration());
     }
 
