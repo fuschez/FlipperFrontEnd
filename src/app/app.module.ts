@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
@@ -25,6 +25,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { PrizeComponent } from './prize/prize.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
 import { FidelityBonusService } from './services/fidelity-bonus.service';
+import { MustMatchDirective } from './directives/must-match.directive';
 
 @NgModule({
   declarations: [
@@ -39,17 +40,19 @@ import { FidelityBonusService } from './services/fidelity-bonus.service';
     LoginModalContent,
     PrizeComponent,
     FidelityBonusComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     AppRoutingModule,
     HomeModule,
     FilmModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
     
   ],
   providers: [
