@@ -16,18 +16,18 @@ export class UserService {
     }
 
     public Update(){
-        this._http.get<Array<IUser>>("multisaladelfino.com/api/account/users").subscribe((u) => {this._listaUser = u});
+        this._http.get<Array<IUser>>("http://multisaladelfino.com/api/account/users").subscribe((u) => {this._listaUser = u});
     }
     public get Users(){
         return this._listaUser;
     }
 
     public AddUsers(users: Array<IUser>){
-        this._http.post<Array<IUser>>("multisaladelfino.com/api/account/users",JSON.stringify(users),this._header);
+        this._http.post<Array<IUser>>("http://multisaladelfino.com/api/account/users",JSON.stringify(users),this._header);
     }
 
     public EditUsers(user: IUser){
-        this._http.put("multisaladelfino.com/api/account/users", JSON.stringify(user),this._header);
+        this._http.put("http:// multisaladelfino.com/api/account/users", JSON.stringify(user),this._header);
         this.Update();
     }
 

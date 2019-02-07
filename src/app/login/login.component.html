@@ -1,64 +1,6 @@
 <div class="card card-register">
     <h3 *ngIf="mode=='Login'" class="title">Login</h3>
     <h3 *ngIf="mode=='Register'" class="title">Registrazione</h3>
-    <!-- <form #loginForm="ngForm" (ngSubmit)="mode=='Login' ? login() : register()">
-
-        <label>Email</label>
-        <div id="email" class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
-            <div class="input-group-prepend">
-                <span class="input-group-text">
-                    <i class="nc-icon nc-email-85"></i>
-                </span>
-            </div>
-
-            <input required name="email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" class="form-control">
-        </div>
-
-        <label>Email</label>
-        <input required name="email" type="email" placeholder="Email" (focus)="focus=true" (blur)="focus=false" class="form-control"
-            [(ngModel)]="user.email" #email="ngModel">
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-            <div *ngIf="email.errors.required" class="form-control-feedback">
-                Email is required.
-            </div>
-        </div>
-
-        <label>Nome</label>
-        <input required name="name" placeholder="Nome" (focus)="focus=true" (blur)="focus=false" class="form-control"
-            [(ngModel)]="user.name" #name="ngModel">
-        <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-            <div *ngIf="name.errors.required" class="form-control-feedback">
-                Name is required.
-            </div>
-        </div>
-
-        <label>Password</label>
-        <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-            <div class="input-group-prepend">
-                <span class="input-group-text">
-                    <i class="nc-icon nc-key-25"></i>
-                </span>
-            </div>
-            <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false">
-        </div>
-
-        <div *ngIf="mode=='Register'">
-            <label>Conferma password</label>
-            <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">
-                        <i class="nc-icon nc-key-25"></i>
-                    </span>
-                </div>
-                <input type="text" class="form-control" placeholder="Conferma password" (focus)="focus1=true" (blur)="focus1=false">
-            </div>
-        </div>
-        
-        <button *ngIf="mode=='Login'" type="submit" class="btn btn-default btn-block btn-round" [disabled]="!loginForm.form.valid">Accedi</button>
-        <button *ngIf="mode=='Register'" type="submit" class="btn btn-default btn-block btn-round" [disabled]="!loginForm.form.valid">Registrati</button>
-        <button *ngIf="mode=='Login'" class="btn btn-default btn-block btn-round" (click)="changeMode()">Non hai un account?</button>
-        <button *ngIf="mode=='Register'" class="btn btn-default btn-block btn-round" (click)="changeMode()">Hai già un account?</button>
-    </form> -->
 
     <form name="form" (ngSubmit)="f.form.valid && (login()||submit())" #f="ngForm" [mustMatch]="['password', 'confirmPassword']" novalidate>
         <div *ngIf="mode=='Register'" class="form-group">

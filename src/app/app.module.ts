@@ -22,10 +22,14 @@ import { LoginComponent } from './login/login.component';
 import { UserService } from './services/user.services';
 import { LoginModalComponent, LoginModalContent } from './modal-login/modal-login.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { PrizeComponent } from './prize/prize.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
 import { FidelityBonusService } from './services/fidelity-bonus.service';
+import { AuthService } from './services/authentication.services';
+import { Interception } from './services/interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MustMatchDirective } from './directives/must-match.directive';
+
+
 
 @NgModule({
   declarations: [
@@ -38,7 +42,6 @@ import { MustMatchDirective } from './directives/must-match.directive';
     LoginComponent,
     LoginModalComponent,
     LoginModalContent,
-    PrizeComponent,
     FidelityBonusComponent,
     MustMatchDirective
   ],
@@ -58,6 +61,8 @@ import { MustMatchDirective } from './directives/must-match.directive';
   providers: [
     FilmService,
     UserService,
+    AuthService,
+    {provide: HTTP_INTERCEPTORS, useClass:Interception, multi : true},
     FidelityBonusService
   ],
   entryComponents: [LoginModalContent],
