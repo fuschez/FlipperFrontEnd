@@ -12,12 +12,9 @@ export class UserService {
     };
 
     constructor(private _http: HttpClient) {
-        this.Update();
     }
 
-    public Update(){
-        this._http.get<Array<IUser>>("http://multisaladelfino.com/api/account/users").subscribe((u) => {this._listaUser = u});
-    }
+    
     public get Users(){
         return this._listaUser;
     }
@@ -28,7 +25,7 @@ export class UserService {
 
     public EditUsers(user: IUser){
         this._http.put("http:// multisaladelfino.com/api/account/users", JSON.stringify(user),this._header);
-        this.Update();
+        
     }
 
     public DeleteUsers(){
