@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ElementRef, OnChanges } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { LoginComponent } from 'app/login/login.component';
 
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
+
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];
@@ -52,6 +53,16 @@ export class NavbarComponent implements OnInit {
         var titlee = this.location.prepareExternalUrl(this.location.path());
 
         if( titlee === '/home' ) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    isFidelity() {
+        var titlee = this.location.prepareExternalUrl(this.location.path());
+
+        if( titlee === '/premi' ) {
             return true;
         }
         else {

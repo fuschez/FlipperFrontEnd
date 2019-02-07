@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { UserService } from 'app/services/user.services';
 import { AuthService } from 'app/services/authentication.services';
 import { tryParse } from 'selenium-webdriver/http';
@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   public pwd:string;
   public isLog: boolean;
   public error: string;
+  public mode: string;
 
   constructor(private authService : AuthService ) { 
     this.isLog = false;
@@ -35,6 +36,11 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.mode = "Login";
   }
 
+  changeMode(){
+    //debugger;
+    this.mode = this.mode=="Login" ? "Register" : "Login";
+  }
 }
