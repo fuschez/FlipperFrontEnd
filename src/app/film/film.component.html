@@ -1,43 +1,42 @@
-<ng-container *ngIf="inProiezione">
-  <table>
-    <tr *ngFor="let film of listaFilm">
-      <td>
-        <img class="media-object" src={{film.PosterUrl}} alt="...">
-      </td>
-      <td>
-        <h4 class="media-heading"> {{film.Title}} </h4>
-        <h6> Anno : {{film.RelaseDate}} </h6>
-        <h6> Attori: {{film.Actors}} </h6>
-        <h6> Genere: {{film.Genres}} </h6>
-        <h6> Durata : {{film.Duration}} </h6>
-        <p> Trama: {{film.Plot}} </p>
-        <button type="button" class="btn btn-outline-danger btn-round" placement="bottom" ngbPopover="Proiezioni."
-        popoverTitle=" ">
-        Visualizza Proiezioni
-      </button>
-      </td>
 
-      
+<div *ngIf="inProiezione">
+    <table>
+      <tr *ngFor="let film of listaFilmInSala">        
+        <td>
+          <img class="media-object" src={{film.PosterUrl}} alt="...">
+        </td>
+        <td>
+          <h4 class="media-heading"> {{film.Title}} </h4>
+          <h6> Anno : {{film.ReleaseDate}} </h6>
+          <h6> Attori: {{film.Actors}} </h6>
+          <h6> Genere: {{film.Genres}} </h6>
+          <h6> Durata : {{film.Duration}} </h6>
+          <p> Trama: {{film.Plot}} </p>
+        </td>     
+      </tr>
+    </table>
+  </div>
 
-    </tr>
-  </table>
-</ng-container>
+<div *ngIf="!inProiezione">
+    <table>
+      <tr *ngFor="let film of listaFilmInUscita">        
+        <td>
+          <img class="media-object" src={{film.PosterUrl}} alt="...">
+        </td>
+        <td>
+            <h4 class="media-heading"> {{film.Title}} </h4>
+          <h6> Anno : {{film.ReleaseDate}} </h6>
+          <h6> Attori: {{film.Actors}} </h6>
+          <h6> Genere: {{film.Genres}} </h6>
+          <h6> Durata : {{film.Duration}} </h6>
+          <p> Trama: {{film.Plot}} </p>
+        </td>
+        <button type="button" class="btn btn-outline-danger btn-round" placement="bottom"
+                    ngbPopover="{{ciao}}" popoverTitle="">
+                    Visualizza proiezioni
+                </button>>      
+      </tr>
+    </table>
+  </div>
 
-<ng-container *ngIf="!inProiezione">
-  <table>
-    <tr *ngFor="let film of FilmsInUscita">
-      <td>
-        <img class="media-object" src={{film.PosterUrl}} alt="...">
-      </td>
-      <td>
-        <h4 class="media-heading"> {{film.Title}} </h4>
-        <h6> Anno : {{film.RelaseDate}} </h6>
-        <h6> Attori: {{film.Actors}} </h6>
-        <h6> Genere: {{film.Genres}} </h6>
-        <h6> Durata : {{film.Duration}} </h6>
-        <p> Trama: {{film.Plot}} </p>
-      </td>
 
-    </tr>
-  </table>
-</ng-container>

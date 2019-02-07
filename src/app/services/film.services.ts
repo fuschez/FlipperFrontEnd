@@ -36,19 +36,16 @@ export class FilmService {
 
     
 
-    public GetFilmsInSala(): Array<IFilm> {
-        if(this._listafilm.length>0){
-            return this._listafilm.filter(v => v.inProiezione);
-        }
-        return null;
+    public GetFilmsInSala(): Observable<IFilm[]> {
+        return this._http.get<IFilm[]>("http://multisaladelfino.com/api/filmsnow");
     }
 
-    public GetFilmsInUscita(): Array<IFilm> {
-        if(this._listafilm.length>0){
+    public GetFilmsInUscita(): Observable<IFilm[]> {
+        return this._http.get<IFilm[]>("http://multisaladelfino.com/api/filmsnext");
+    }
 
-            return this._listafilm.filter(v => !v.inProiezione);
-        }
-        return null;
+    public Edit(film:IFilm): Observable<any>{
+        return this._http.put("http://multisaladelfino.com/api/fidelity",JSON.stringify(film),this._header);    
     }
 
 

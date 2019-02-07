@@ -27,10 +27,7 @@ import { FidelityBonusService } from './services/fidelity-bonus.service';
 import { AuthService } from './services/authentication.services';
 import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
-<<<<<<< HEAD
-=======
 import { MustMatchDirective } from './directives/must-match.directive';
->>>>>>> d6ca7ee085e69d246b85557a625d90d017680b52
 import { InfoComponent } from './info/info.component';
 
 
@@ -47,12 +44,8 @@ import { InfoComponent } from './info/info.component';
     LoginModalComponent,
     LoginModalContent,
     FidelityBonusComponent,
-<<<<<<< HEAD
-    InfoComponent
-=======
     MustMatchDirective,
     InfoComponent,
->>>>>>> d6ca7ee085e69d246b85557a625d90d017680b52
   ],
   imports: [
     BrowserModule,

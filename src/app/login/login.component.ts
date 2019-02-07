@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   error: string;
   mode: string;
 
-  constructor(private authService : AuthService ) {
+  constructor(private authService : AuthService, private userService : UserService ) {
   }
 
   ngOnInit() {
@@ -34,9 +34,10 @@ export class LoginComponent implements OnInit {
       .subscribe(
         err => this.error = 'Could not authenticate'
     );
+
   }
   register(){
-    //TODO
-    alert('Registration: ' + JSON.stringify(this.user));
+    console.log("ok");
+    this.userService.AddUsers(this.user).subscribe();
   }
 }

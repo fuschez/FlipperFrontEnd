@@ -1,10 +1,11 @@
 import { Injectable } from "@angular/core";
 import { IUser } from "app/models/user.models";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { tap } from "rxjs/operators";
 
 @Injectable()
 export class UserService {
-    private _listaUser : Array<IUser>;
     private _header = {
         headers : new HttpHeaders ({
             "Content-type": "application/json"
@@ -14,17 +15,13 @@ export class UserService {
     constructor(private _http: HttpClient) {
     }
 
-    
-    public get Users(){
-        return this._listaUser;
-    }
+    public AddUsers(user: IUser):Observable<any>{
+        return this._http.post<IUser>("http://multisaladelfino.com/api/account/register",JSON.stringify(user),this._header);
 
-    public AddUsers(users: Array<IUser>){
-        this._http.post<Array<IUser>>("http://multisaladelfino.com/api/account/users",JSON.stringify(users),this._header);
     }
 
     public EditUsers(user: IUser){
-        this._http.put("http:// multisaladelfino.com/api/account/users", JSON.stringify(user),this._header);
+        this._http.put("http://multisaladelfino.com/api/account/", JSON.stringify(user),this._header);
         
     }
 

@@ -4,11 +4,10 @@ export interface IFilm {
     Id:string;
     Title: string;
     Genres: string;
-    RelaseDate: Data;
+    RelaseDate: Date;
     Actors: string;
     Duration: number;
-    ScreeningDate:  Data;
+    ScreeningDate: Date[];
     PosterUrl: string;
     Plot : string;
-    inProiezione : boolean;
 }
