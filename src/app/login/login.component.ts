@@ -13,28 +13,11 @@ import { IUser } from 'app/models/user.models';
 })
 export class LoginComponent implements OnInit {
 
-  user: IUser;
-  public email:string;
-  public pwd:string;
-  public isLog: boolean;
-  public error: string;
-  public mode: string;
+  user: IUser = {name: "", surname: "", email: "", password: "", confirmPassword: ""};
+  error: string;
+  mode: string;
 
-  constructor(private authService : AuthService ) { 
-    this.isLog = false;
-    this.email = "";
-    this.email = "";
-  }
-
-  public Accedi() : void{
-    console.log("le banane con in mezzo manzotin");
-    this.isLog = true;
-
-    this.authService.login(this.email,this.pwd).pipe(first())
-      .subscribe(
-        err => this.error = 'Could not authenticate'
-      );
-
+  constructor(private authService : AuthService ) {
   }
 
   ngOnInit() {
@@ -47,7 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(){
-    alert('Successo!'+JSON.stringify(this.user));
+    this.authService.login(this.user.email,this.user.password).pipe(first())
+      .subscribe(
+        err => this.error = 'Could not authenticate'
+    );
   }
-  register(){ }
+  register(){
+    //TODO
+    alert('Registration: ' + JSON.stringify(this.user));
+  }
 }

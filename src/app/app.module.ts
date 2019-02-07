@@ -28,6 +28,7 @@ import { AuthService } from './services/authentication.services';
 import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MustMatchDirective } from './directives/must-match.directive';
+import { InfoComponent } from './info/info.component';
 
 
 
@@ -43,7 +44,8 @@ import { MustMatchDirective } from './directives/must-match.directive';
     LoginModalComponent,
     LoginModalContent,
     FidelityBonusComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
