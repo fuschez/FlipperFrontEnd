@@ -23,13 +23,13 @@ export class FilmComponent implements OnInit {
     this.filmService.GetFilms().subscribe(x => this.listaFilm = x);
   }
 
-  public GetFilmsInSala(): Array<IFilm> {
-    return this.filmService.GetFilmsInSala();
-  }
+  // public GetFilmsInSala(): Array<IFilm> {
+  //   return this.filmService.GetFilmsInSala();
+  // }
 
-  public GetFilmsInUscita(): Array<IFilm> {
-    return this.filmService.GetFilmsInUscita();
-  }
+  // public GetFilmsInUscita(): Array<IFilm> {
+  //   return this.filmService.GetFilmsInUscita();
+  // }
   ngOnInit() {
     this.GetFilms();
   }

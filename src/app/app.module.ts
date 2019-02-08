@@ -29,6 +29,7 @@ import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MustMatchDirective } from './directives/must-match.directive';
 import { InfoComponent } from './info/info.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -46,6 +47,7 @@ import { InfoComponent } from './info/info.component';
     FidelityBonusComponent,
     MustMatchDirective,
     InfoComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,9 @@ import { InfoComponent } from './info/info.component';
     {provide: HTTP_INTERCEPTORS, useClass:Interception, multi : true},
     FidelityBonusService
   ],
-  entryComponents: [LoginModalContent],
+  entryComponents: [
+    LoginModalContent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,14 +1,14 @@
 import { Data } from "@angular/router";
 
 export interface IFilm {
-    Id:string;
+    IdFilm:string;
     Title: string;
     Genres: string;
-    RelaseDate: Data;
+    ReleaseDate: string;
     Actors: string;
     Duration: number;
-    ScreeningDate:  Data;
+    ScreeningDate:  string;
     PosterUrl: string;
+    LandscapePosterUrl: string,
     Plot : string;
-    inProiezione : boolean;
 }

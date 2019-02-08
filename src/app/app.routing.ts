@@ -11,6 +11,7 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { LoginComponent } from './login/login.component';
 import { InfoComponent } from './info/info.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
+import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'info',             component: InfoComponent },
     { path: 'premi',            component: FidelityBonusComponent },
+    { path: 'admin',            component: AdminComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

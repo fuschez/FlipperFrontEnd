@@ -1,7 +1,9 @@
 import { Injectable } from "@angular/core";
 import { IFilm } from "app/models/film.model";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
 import { Observable } from 'rxjs';
+import { dbFilm } from "app/models/db-film";
+import { newFilm } from "app/models/new-film";
 
 @Injectable()
 export class FilmService {
@@ -21,35 +23,34 @@ export class FilmService {
         
     }
 
-    public AddFilm(films: Array<IFilm>){
-        this._http.post<Array<IFilm>>("http://multisaladelfino.com/api/films",JSON.stringify(films),this._header);
+    public AddFilm(films: newFilm): Observable<any>{
+        return this._http.post<newFilm>("http://multisaladelfino.com/api/films",JSON.stringify(films),this._header);
     }
 
-    public EditFilm(film: IFilm){
-        this._http.put("http://multisaladelfino.com/api/films", JSON.stringify(film), this._header);
-        this.GetFilms();
+    public EditFilm(film: dbFilm): Observable<any>{
+        return this._http.put("http://multisaladelfino.com/api/films/" + film.ID_FILM, JSON.stringify(film), this._header);
     }
 
-    public DeleteFilm(){
-        
+    public DeleteFilm(id: string): Observable<any>{
+        return this._http.delete("http://multisaladelfino.com/api/films/" + id, this._header);
     }
 
     
 
-    public GetFilmsInSala(): Array<IFilm> {
-        if(this._listafilm.length>0){
-            return this._listafilm.filter(v => v.inProiezione);
-        }
-        return null;
-    }
+    // public GetFilmsInSala(): Array<IFilm> {
+    //     if(this._listafilm.length>0){
+    //         return this._listafilm.filter(v => v.inProiezione);
+    //     }
+    //     return null;
+    // }
 
-    public GetFilmsInUscita(): Array<IFilm> {
-        if(this._listafilm.length>0){
+    // public GetFilmsInUscita(): Array<IFilm> {
+    //     if(this._listafilm.length>0){
 
-            return this._listafilm.filter(v => !v.inProiezione);
-        }
-        return null;
-    }
+    //         return this._listafilm.filter(v => !v.inProiezione);
+    //     }
+    //     return null;
+    // }
 
 
 
