@@ -29,10 +29,14 @@ import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MustMatchDirective } from './directives/must-match.directive';
 import { InfoComponent } from './info/info.component';
+<<<<<<< HEAD
 import { SearchComponent } from './search/search.component';
 import { GenreService } from './services/genre.services';
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { SearchGenreComponent } from './search-genre/search-genre.component';
+=======
+import { AdminComponent } from './admin/admin.component';
+>>>>>>> 14744f47b3134c5ec34083262defc47f93993218
 
 
 
@@ -50,9 +54,13 @@ import { SearchGenreComponent } from './search-genre/search-genre.component';
     FidelityBonusComponent,
     MustMatchDirective,
     InfoComponent,
+<<<<<<< HEAD
     SearchComponent,
     SearchFilmComponent,
     SearchGenreComponent,
+=======
+    AdminComponent,
+>>>>>>> 14744f47b3134c5ec34083262defc47f93993218
   ],
   imports: [
     BrowserModule,
@@ -75,7 +83,9 @@ import { SearchGenreComponent } from './search-genre/search-genre.component';
     FidelityBonusService,
     GenreService
   ],
-  entryComponents: [LoginModalContent],
+  entryComponents: [
+    LoginModalContent,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

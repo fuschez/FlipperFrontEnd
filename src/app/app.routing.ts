@@ -11,6 +11,7 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { LoginComponent } from './login/login.component';
 import { InfoComponent } from './info/info.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
+import { AdminComponent } from './admin/admin.component';
 
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { SearchGenreComponent } from './search-genre/search-genre.component';
@@ -24,9 +25,14 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'info',             component: InfoComponent },
     { path: 'premi',            component: FidelityBonusComponent },
+<<<<<<< HEAD
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'detail-film',      component: SearchFilmComponent},
     { path: 'search-genre/:id',       component: SearchGenreComponent}
+=======
+    { path: 'admin',            component: AdminComponent},
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
+>>>>>>> 14744f47b3134c5ec34083262defc47f93993218
 ];
 
 @NgModule({

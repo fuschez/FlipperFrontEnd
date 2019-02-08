@@ -50,4 +50,8 @@ export class AuthService {
     isLoggedOut() {
         return !this.isLoggedIn();
     }
+
+    amIAdmin(): Observable<any> {
+        return this._http.get("http://multisaladelfino.com/api/account/amiadmin");
+    }
 }

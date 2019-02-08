@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, ViewChild, AfterViewInit, ViewChildren} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from 'app/login/login.component';
 import { forwardRef } from '@angular/core';
@@ -29,19 +29,14 @@ export class LoginModalContent {
     selector: 'login-modal-component',
     templateUrl: './modal-login.component.html'
 })
-export class LoginModalComponent implements OnInit, AfterViewInit {
-    @Input()
-    private id : string;
-    @ViewChildren(forwardRef(() => LoginComponent)) 
-    private loginComponent;
+export class LoginModalComponent implements OnInit {
     
-    _mode: string = "Login";
     
-    ngAfterViewInit() {
-        this._mode = this.loginComponent.modeOutput;    
-    }
-
-    ngOnInit(): void { this._mode='Login' }
+    
+    
+    
+    
+    ngOnInit(): void { }
 
     constructor(private modalService: NgbModal) {}
 
@@ -50,10 +45,6 @@ export class LoginModalComponent implements OnInit, AfterViewInit {
         modalRef.componentInstance.name = 'World';
     }
 
-    close() {
-        
-        document.getElementById(this.id).click();
-    }
+    
     
 }
-

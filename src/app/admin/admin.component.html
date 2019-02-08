@@ -1,0 +1,127 @@
+<div class="page-header page-header-xs" data-parallax="true" style="background-image: url('./assets/img/fabio-mangione.jpg'); margin-bottom: 25px">
+  <div class="filter">
+      <h2 class="text-warning">Benvenuto nella pagina di gestione</h2>
+  </div>
+</div>
+
+<div class="divp">
+  <button type="button" class="btn btn-primary" (click)="toggleCreate()">
+    Crea nuovo
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="getFilms()">
+    Aggiorna
+  </button>
+</div>
+
+  <form name="form">
+  <table class="table table-responsive-sm table-hover table-outline mb-0">
+    <thead class="thead-light">
+      <tr>
+        <th class="text-center">Titolo</th>
+        <th class="text-center">Data di rilascio</th>
+        <th class="text-center">Durata</th>
+        <th class="text-center">URL locandina</th>
+        <th class="text-center">Trama</th>
+        <th class="text-center" colspan="2">Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngIf="createMode==true">
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NEWNAME" placeholder="Titolo" [(ngModel)]="newFilm.NAME"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NEWRELEASE_DATE" placeholder="Data di rilascio" [(ngModel)]="newFilm.RELEASE_DATE"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NEWDURATION" placeholder="Durata" [(ngModel)]="newFilm.DURATION"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NEWPOSTER_URL" placeholder="URL locandina" [(ngModel)]="newFilm.POSTER_URL"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NEWPLOT" placeholder="Trama" [(ngModel)]="newFilm.PLOT"/>
+          </div>
+        </td>
+        <td colspan="3" class="text-center">
+          <button type="button" class="btn btn-primary mr-1" (click)="createFilm()">
+            <i class="fa fa-plus"></i>
+          </button>
+        </td>
+      </tr>
+
+      <tr *ngIf="editMode==true">
+        <td class="text-center">
+          <div clss="form-group">
+            <input type="text" class="form-control" name="NAME" placeholder="{{ editFilm.NAME }}" [(ngModel)]="editFilm.NAME"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+              <input type="text" class="form-control" name="RELEASE_DATE" placeholder="{{ editFilm.RELEASE_DATE }}" [(ngModel)]="editFilm.RELEASE_DATE"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+              <input type="text" class="form-control" name="DURATION" placeholder="{{ editFilm.DURATION }}" [(ngModel)]="editFilm.DURATION"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+              <input type="text" class="form-control" name="POSTER_URL" placeholder="{{ editFilm.POSTER_URL }}" [(ngModel)]="editFilm.POSTER_URL"/>
+          </div>
+        </td>
+        <td class="text-center">
+          <div clss="form-group">
+              <input type="text" class="form-control" name="PLOT" placeholder="{{ editFilm.PLOT }}" [(ngModel)]="editFilm.PLOT"/>
+          </div>
+        </td>
+        <td colspan="2" class="text-center">
+          <button type="button" class="btn btn-success mr-1" data-toggle="modal" (click)="modifyFilm()">
+            <i class="fa fa-edit"></i>
+          </button>
+        </td>
+      </tr>
+
+
+      <tr *ngFor="let film of films">
+        <td class="text-center">
+            {{ film.Title }}
+        </td>
+        <td class="text-center">
+            {{ film.ReleaseDate }}
+        </td>
+        <td class="text-center">
+            {{ film.Duration }}
+        </td>
+        <td class="text-center">
+            {{ film.PosterUrl }}
+        </td>
+        <td class="text-center">
+            {{ film.Plot }}
+        </td>
+        <td class="text-center">
+          <button type="button" class="btn btn-warning mr-1" data-toggle="modal" (click)="toggleEdit(film)">
+            <i class="fa fa-edit"></i>
+          </button>
+        </td>
+        <td class="text-center">
+          <button type="button" class="btn btn-danger mr-1" data-toggle="modal" (click)="deleteFilm(film.IdFilm)">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
