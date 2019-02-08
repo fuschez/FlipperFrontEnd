@@ -7,7 +7,7 @@ export interface IFilm {
     ReleaseDate: string;
     Actors: string;
     Duration: number;
-    ScreeningDate:  string;
+    ScreeningDate: string[];
     PosterUrl: string;
     Plot : string;
     LandscapePosterUrl: string;

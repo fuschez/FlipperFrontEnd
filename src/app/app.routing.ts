@@ -25,7 +25,7 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'info',             component: InfoComponent },
     { path: 'premi',            component: FidelityBonusComponent },
-    { path: 'detail-film',      component: SearchFilmComponent},
+    { path: 'detail-film/:id',      component: SearchFilmComponent},
     { path: 'search-genre/:id',       component: SearchGenreComponent},
     { path: 'admin',            component: AdminComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }

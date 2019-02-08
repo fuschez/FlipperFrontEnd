@@ -24,7 +24,7 @@ export class FilmService {
     }
 
     public GetFilm(id:number) : Observable<IFilm>{
-        return this._http.get<IFilm>(this.url +"/?id=${id}");
+        return this._http.get<IFilm>(this.url +`/?id=${id}`);
     }
     
 

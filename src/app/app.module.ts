@@ -33,11 +33,13 @@ import { SearchComponent } from './search/search.component';
 import { GenreService } from './services/genre.services';
 import { SearchFilmComponent } from './search-film/search-film.component';
 import { SearchGenreComponent } from './search-genre/search-genre.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
 @NgModule({
   declarations: [
+    AdminComponent,
     AppComponent,
     SignupComponent,
     LandingComponent,

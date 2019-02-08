@@ -15,7 +15,6 @@ export class CarouselComponent implements OnInit {
   ngOnInit() {
     this.urlPoster = [];
     this._filmservice.GetCarousel().subscribe(x => this.urlPoster = x);
-    debugger;
   }
 
 }

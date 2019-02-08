@@ -3,7 +3,7 @@
 <div aria-labelledby="dropdownBasic1" class="dropdown-danger dropdown-menu-left">
     <ul class="dropdown-danger dropdown-menu-left">
         <li class="dropdown-item" *ngFor="let film of film$ | async">
-            <a [routerLink]="[ '/detail-film,film.id']">
+            <a routerLink="/detail-film/{{film.IdFilm}}}">
                 {{film.Title}}
             </a>
         </li>

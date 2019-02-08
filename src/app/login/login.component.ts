@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
         err => this.error = 'Could not authenticate'
     );
     
-    this.mode = "Logout"
-    this.controlloModal.close();
+    this.mode = "Logout";
     
 
   }
