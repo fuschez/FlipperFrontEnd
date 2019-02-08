@@ -17,16 +17,16 @@ export class FidelityBonusService{
     }
 
     public GetFidelity():Observable<IFidelityBonus[]>{
-        return this._http.get<IFidelityBonus[]>("http://multisaladelfino.com/api/prizes");
+        return this._http.get<IFidelityBonus[]>("http://multisaladelfino.com/api/fidelity");
     }
 
 
     public Add(fidelityBonuses:Array<IFidelityBonus>){
-        this._http.post<Array<IFidelityBonus>>("http://multisaladelfino.com/api/prizes",JSON.stringify(fidelityBonuses),this._header);
+        this._http.post<Array<IFidelityBonus>>("http://multisaladelfino.com/api/fidelity",JSON.stringify(fidelityBonuses),this._header);
     }
 
     public Edit(fidelityBonus:IFidelityBonus){
-        this._http.put("http://multisaladelfino.com/api/prizes",JSON.stringify(fidelityBonus),this._header);
+        this._http.put("http://multisaladelfino.com/api/fidelity",JSON.stringify(fidelityBonus),this._header);
         this.GetFidelity();
     }
 

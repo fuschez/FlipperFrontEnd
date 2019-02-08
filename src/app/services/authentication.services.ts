@@ -30,12 +30,6 @@ export class AuthService {
 
     }
 
-    // private setSession(authResult) { //memorizziamo il jwt nella memoria locale
-    //     const expiresAt = moment().add(authResult.expiresIn, 'second');
-
-    //     localStorage.setItem('id_token', authResult.idToken);
-    //     localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()));
-    // }
 
     logout() {
         localStorage.removeItem("id_token");
