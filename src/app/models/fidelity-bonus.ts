@@ -1,6 +1,6 @@
 export interface IFidelityBonus {
-    name: string,
-    cost: number,
-    description: string,
-    imageUrl: string,
+    NAME: string,
+    COST: number,
+    DESCRIPTION: string,
+    IMAGE_URL: string,
 }

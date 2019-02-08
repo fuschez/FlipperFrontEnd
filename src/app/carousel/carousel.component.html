@@ -4,13 +4,11 @@
                 <div class="col-md-8 mr-auto ml-auto">
                     <div class="card page-carousel">
                         <ngb-carousel>
-                            <ng-template ngbSlide>
-                                <img src="./assets/img/img1.jpg" alt="Random first slide">
-                                <div class="carousel-caption">
-                                    <p>Somewhere</p>
-                                </div>
+                            <ng-template ngbSlide *ngFor="let url of urlPoster">
+                                <img src={{url}} alt="">
+                    
                             </ng-template>
-                            <ng-template ngbSlide>
+                            <!-- <ng-template ngbSlide>
                                 <img src="./assets/img/img2.jpg" alt="Random second slide">
                                 <div class="carousel-caption">
                                     <p>Somewhere else</p>
@@ -21,7 +19,7 @@
                                 <div class="carousel-caption">
                                     <p>Here it is</p>
                                 </div>
-                            </ng-template>
+                            </ng-template> -->
                         </ngb-carousel>
                     </div>
                 </div>

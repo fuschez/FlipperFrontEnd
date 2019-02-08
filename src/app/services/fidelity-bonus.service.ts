@@ -5,7 +5,6 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class FidelityBonusService{
-    private _fidelityBonuses : Array<IFidelityBonus>;
 
     private _header = {
         headers : new HttpHeaders({

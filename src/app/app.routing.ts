@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { InfoComponent } from './info/info.component';
 import { FidelityBonusComponent } from './fidelity-bonus/fidelity-bonus.component';
 
+import { SearchFilmComponent } from './search-film/search-film.component';
+import { SearchGenreComponent } from './search-genre/search-genre.component';
+
 const routes: Routes =[
     { path: 'home',             component: HomeComponent },
     { path: 'user-profile',     component: ProfileComponent },
@@ -21,7 +24,9 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'info',             component: InfoComponent },
     { path: 'premi',            component: FidelityBonusComponent },
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'detail-film',      component: SearchFilmComponent},
+    { path: 'search-genre/:id',       component: SearchGenreComponent}
 ];
 
 @NgModule({

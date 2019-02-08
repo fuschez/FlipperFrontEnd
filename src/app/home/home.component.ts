@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmService } from 'app/services/film.services';
 
 @Component({
     selector: 'app-home',
@@ -13,9 +14,13 @@ export class HomeComponent implements OnInit {
         right: false
     };
      
+    
     focus;
     focus1;
     constructor() { }
 
-    ngOnInit() {}
+    ngOnInit() {
+        
+
+    }
 }

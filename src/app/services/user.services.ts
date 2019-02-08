@@ -6,6 +6,8 @@ import { tap } from "rxjs/operators";
 
 @Injectable()
 export class UserService {
+
+    
     private _header = {
         headers : new HttpHeaders ({
             "Content-type": "application/json"
@@ -13,6 +15,10 @@ export class UserService {
     };
 
     constructor(private _http: HttpClient) {
+    }
+
+    public GetUser(email:string):Observable<IUser>{
+        return this._http.get<IUser>("http://multisaladelfino.com/api/account/"+ email);
     }
 
     public AddUsers(user: IUser):Observable<any>{
@@ -25,7 +31,7 @@ export class UserService {
         
     }
 
-    public DeleteUsers(){
-        
+    public DeleteUsers(user: IUser){
+        this._http.delete("http://multisaladelfino.com/api/account/" + user.email);
     }
 }

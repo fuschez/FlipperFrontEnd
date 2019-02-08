@@ -29,6 +29,10 @@ import { Interception } from './services/interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { MustMatchDirective } from './directives/must-match.directive';
 import { InfoComponent } from './info/info.component';
+import { SearchComponent } from './search/search.component';
+import { GenreService } from './services/genre.services';
+import { SearchFilmComponent } from './search-film/search-film.component';
+import { SearchGenreComponent } from './search-genre/search-genre.component';
 
 
 
@@ -46,6 +50,9 @@ import { InfoComponent } from './info/info.component';
     FidelityBonusComponent,
     MustMatchDirective,
     InfoComponent,
+    SearchComponent,
+    SearchFilmComponent,
+    SearchGenreComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +72,8 @@ import { InfoComponent } from './info/info.component';
     UserService,
     AuthService,
     {provide: HTTP_INTERCEPTORS, useClass:Interception, multi : true},
-    FidelityBonusService
+    FidelityBonusService,
+    GenreService
   ],
   entryComponents: [LoginModalContent],
   bootstrap: [AppComponent]

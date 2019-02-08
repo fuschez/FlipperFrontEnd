@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FilmService } from 'app/services/film.services';
 
 @Component({
   selector: 'app-carousel',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
-  constructor() { }
+  urlPoster: string[];
+
+  constructor(private _filmservice : FilmService) { }
 
   ngOnInit() {
+    this.urlPoster = [];
+    this._filmservice.GetCarousel().subscribe(x => this.urlPoster = x);
+    debugger;
   }
 
 }

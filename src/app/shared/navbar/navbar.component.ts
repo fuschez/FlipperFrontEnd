@@ -1,6 +1,16 @@
-import { Component, OnInit, ElementRef, OnChanges } from '@angular/core';
+import { Component, OnInit, ElementRef, OnChanges, Input } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { LoginComponent } from 'app/login/login.component';
+import { LoginModalComponent } from 'app/modal-login/modal-login.component';
+import { ViewChildren } from '@angular/core';
+import { AuthService } from 'app/services/authentication.services';
+import { IFilm } from 'app/models/film.model';
+import { FilmService } from 'app/services/film.services';
+import { Observable, Subject } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
+import { IGenre } from 'app/models/genre.model';
+import { GenreService } from 'app/services/genre.services';
+import { stringify } from 'querystring';
 
 @Component({
     selector: 'app-navbar',
@@ -8,18 +18,49 @@ import { LoginComponent } from 'app/login/login.component';
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+    @ViewChildren(LoginModalComponent) 
+    private loginModalComponent;
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    film$: Observable<IFilm[]>;
+    title = new Subject<string>();
+    genres : IGenre[];
+  
+
+    constructor(public location: Location, private element : ElementRef, private auth:AuthService, private filmservice:FilmService, private genreservice:GenreService) {
         this.sidebarVisible = false;
+        
+    }
+
+    search(term: string): void {
+        this.title.next(term);
     }
 
     ngOnInit() {
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
+        this.film$ = this.title.pipe(
+            debounceTime(300),
+            distinctUntilChanged(),
+            switchMap((x: string) => this.filmservice.searchFilmsBy("Title", x))
+          );
+
+        this.genres=[];
+        this.genreservice.GetGenres().subscribe(x=>this.genres = x);
+        
+        
     }
 
+    isLog(){
+        this.auth.isLoggedIn();
+    }
+
+    doLogout(){
+        console.log("ok");
+        this.auth.logout();
+    }
     sidebarOpen() {
         const toggleButton = this.toggleButton;
         const html = document.getElementsByTagName('html')[0];

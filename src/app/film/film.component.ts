@@ -17,6 +17,7 @@ export class FilmComponent implements OnInit {
   public listaFilm: IFilm[];
   public listaFilmInSala: IFilm[];
   public listaFilmInUscita: IFilm[];
+  public screeningDate: string = "";
 
   constructor(private filmService : FilmService) {
     
@@ -34,6 +35,11 @@ export class FilmComponent implements OnInit {
 
   public GetFilmsInUscita() {
     this.filmService.GetFilmsInUscita().subscribe(x=> this.listaFilmInUscita = x);
+  }
+
+  public GetScreening(film:IFilm){
+    this.screeningDate = "";
+    film.ScreeningDate.forEach(x => this.screeningDate += x.toString() + ",  ");
   }
   ngOnInit() {
     this.listaFilmInSala = [];

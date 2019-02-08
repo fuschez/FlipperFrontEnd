@@ -1,9 +1,12 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild, Input } from '@angular/core';
 import { UserService } from 'app/services/user.services';
 import { AuthService } from 'app/services/authentication.services';
 import { tryParse } from 'selenium-webdriver/http';
 import { first } from 'rxjs/operators';
 import { IUser } from 'app/models/user.models';
+import { Alert } from 'selenium-webdriver';
+import { NgbAlert, NgbAlertModule, NgbAlertConfig } from '@ng-bootstrap/ng-bootstrap';
+import { LoginModalComponent } from 'app/modal-login/modal-login.component';
 
 
 @Component({
@@ -13,11 +16,14 @@ import { IUser } from 'app/models/user.models';
 })
 export class LoginComponent implements OnInit {
 
+  @Input("controlloModal")
+  controlloModal: LoginModalComponent;
+
   user: IUser = {name: "", surname: "", email: "", password: "", confirmPassword: ""};
   error: string;
   mode: string;
 
-  constructor(private authService : AuthService, private userService : UserService ) {
+  constructor(private authService : AuthService, private userService : UserService, private alertService: NgbAlertConfig ) {
   }
 
   ngOnInit() {
@@ -34,10 +40,19 @@ export class LoginComponent implements OnInit {
       .subscribe(
         err => this.error = 'Could not authenticate'
     );
+    
+    this.mode = "Logout"
+    this.controlloModal.close();
+    
 
   }
   register(){
     console.log("ok");
     this.userService.AddUsers(this.user).subscribe();
+    this.mode = "Login";
   }
+
+  
+
+  
 }

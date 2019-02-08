@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { IFilm } from "app/models/film.model";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders, HttpClientModule } from "@angular/common/http";
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable()
 export class FilmService {
     private _listafilm: Array<IFilm>;
-    
+    private url = "http://multisaladelfino.com/api/films"; 
     private _header = {
         headers: new HttpHeaders({
             "Content-type": "application/json"
@@ -17,21 +19,36 @@ export class FilmService {
     }
 
     public GetFilms() : Observable<IFilm[]>{
-        return this._http.get<IFilm[]>("http://multisaladelfino.com/api/films");
+        return this._http.get<IFilm[]>(this.url);
         
     }
 
-    public AddFilm(films: Array<IFilm>){
-        this._http.post<Array<IFilm>>("http://multisaladelfino.com/api/films",JSON.stringify(films),this._header);
+    public GetFilm(id:number) : Observable<IFilm>{
+        return this._http.get<IFilm>(this.url +"/?id=${id}");
+    }
+    
+
+    public AddFilm(film : IFilm){
+        this._http.post<Array<IFilm>>(this.url,JSON.stringify(film),this._header);
     }
 
     public EditFilm(film: IFilm){
-        this._http.put("http://multisaladelfino.com/api/films", JSON.stringify(film), this._header);
+        this._http.put(this.url, JSON.stringify(film), this._header);
         this.GetFilms();
     }
 
+    searchFilmsBy(filter:string ,query: string): Observable<IFilm[]> {
+        // if (!query.trim())
+        //   return of([]);
+        return this._http.get<IFilm[]>(this.url + `/?${filter}=${query}`).pipe();
+      }
+
     public DeleteFilm(){
         
+    }
+
+    public GetCarousel():Observable<string[]>{
+        return this._http.get<string[]>(this.url + "/posters");
     }
 
     
