@@ -14,21 +14,11 @@ export class FidelityBonusComponent implements OnInit {
   constructor(private svc: FidelityBonusService) { }
   
   ngOnInit() {
-<<<<<<< HEAD
-    this._listafidelity=[];
-    this.GetFidelity();
-  }
-
-  public GetFidelity(){
-    this.svc.GetFidelity().subscribe(x => this._listafidelity=x);
-    debugger;
-=======
     this.getFidelity();
   }
 
   public getFidelity(){
     this.svc.GetFidelity().subscribe(x => this.fidelityBonuses = x);
->>>>>>> 14744f47b3134c5ec34083262defc47f93993218
   }
 
 }

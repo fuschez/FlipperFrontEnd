@@ -25,14 +25,10 @@ const routes: Routes =[
     { path: 'login',            component: LoginComponent },
     { path: 'info',             component: InfoComponent },
     { path: 'premi',            component: FidelityBonusComponent },
-<<<<<<< HEAD
-    { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'detail-film',      component: SearchFilmComponent},
-    { path: 'search-genre/:id',       component: SearchGenreComponent}
-=======
+    { path: 'search-genre/:id',       component: SearchGenreComponent},
     { path: 'admin',            component: AdminComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
->>>>>>> 14744f47b3134c5ec34083262defc47f93993218
 ];
 
 @NgModule({
